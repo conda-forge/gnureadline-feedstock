@@ -1,4 +1,4 @@
-{% set version = "6.3.8" %}
+{% set version = "8.0.0" %}
 
 package:
     name: gnureadline
@@ -7,10 +7,10 @@ package:
 source:
     fn: gnureadline-{{ version }}.tar.gz
     url: https://pypi.io/packages/source/g/gnureadline/gnureadline-{{ version }}.tar.gz
-    md5: ba341f4b907250bd1f47dbc06290604f
+    md5: 47951eb3fc606de8319bb5ef898e63cf
 
 build:
-    number: 1000
+    number: 0
     skip: True  # [not osx]
     script: python setup.py install --single-version-externally-managed --record=record.txt
 
