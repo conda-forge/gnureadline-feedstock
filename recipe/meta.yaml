@@ -10,7 +10,7 @@ source:
     md5: 47951eb3fc606de8319bb5ef898e63cf
 
 build:
-    number: 1
+    number: 2
     skip: True  # [not osx]
     script: python -m pip install .
 
