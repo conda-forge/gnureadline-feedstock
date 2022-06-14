@@ -1,40 +1,40 @@
-{% set version = "8.0.0" %}
+{% set version = "8.1.2" %}
 
 package:
-    name: gnureadline
-    version: {{ version }}
+  name: gnureadline
+  version: {{ version }}
 
 source:
-    fn: gnureadline-{{ version }}.tar.gz
-    url: https://pypi.io/packages/source/g/gnureadline/gnureadline-{{ version }}.tar.gz
-    md5: 47951eb3fc606de8319bb5ef898e63cf
+  fn: gnureadline-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/g/gnureadline/gnureadline-{{ version }}.tar.gz
+  md5: 28839a3424012f3532213f1717d7e3ae
 
 build:
-    number: 2
-    skip: True  # [not osx]
-    script: python -m pip install .
+  number: 0
+  skip: true  # [not osx]
+  script: python -m pip install .
 
 requirements:
-    build:
-        - {{ compiler('c') }}
-    host:
-        - python
-        - pip
-    run:
-        - python
+  build:
+    - {{ compiler('c') }}
+  host:
+    - python
+    - pip
+  run:
+    - python
 
 test:
   imports:
-      - gnureadline
+    - gnureadline
 
 about:
-    home: http://github.com/ludwigschwardt/python-gnureadline
-    license: GPL-3.0
-    license_family: GPL
-    license_file: LICENSE
-    summary: The standard Python readline extension statically linked against the GNU readline library
+  home: http://github.com/ludwigschwardt/python-gnureadline
+  license: GPL-3.0
+  license_family: GPL
+  license_file: LICENSE
+  summary: The standard Python readline extension statically linked against the GNU readline library
 
 extra:
-    recipe-maintainers:
-        - ocefpaf
-        - scopatz
+  recipe-maintainers:
+    - ocefpaf
+    - scopatz
