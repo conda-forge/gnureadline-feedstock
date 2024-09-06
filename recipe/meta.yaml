@@ -5,14 +5,13 @@ package:
   version: {{ version }}
 
 source:
-  fn: gnureadline-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/g/gnureadline/gnureadline-{{ version }}.tar.gz
   md5: b0c597a2dd32b629e7fa4c0a15ff764d
 
 build:
   number: 1
   skip: true  # [not osx]
-  script: python -m pip install .
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -20,6 +19,7 @@ requirements:
     - {{ stdlib("c") }}
   host:
     - python
+    - setuptools
     - pip
   run:
     - python
@@ -27,6 +27,10 @@ requirements:
 test:
   imports:
     - gnureadline
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: http://github.com/ludwigschwardt/python-gnureadline
