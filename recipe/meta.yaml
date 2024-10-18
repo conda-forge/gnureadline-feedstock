@@ -1,4 +1,4 @@
-{% set version = "8.2.10" %}
+{% set version = "8.2.13" %}
 
 package:
   name: gnureadline
@@ -7,7 +7,7 @@ package:
 source:
   fn: gnureadline-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/g/gnureadline/gnureadline-{{ version }}.tar.gz
-  md5: b0c597a2dd32b629e7fa4c0a15ff764d
+  md5: c3a6b5751fa063d5e75dea0b23786118
 
 build:
   number: 0
