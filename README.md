@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gnureadline-fee
 
 Home: http://github.com/ludwigschwardt/python-gnureadline
 
-Package license: GPL-3.0
+Package license: GPL-3.0-only
 
 Summary: The standard Python readline extension statically linked against the GNU readline library
 
