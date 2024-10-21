@@ -1,18 +1,18 @@
-{% set version = "8.2.10" %}
+{% set name = "gnureadline" %}
+{% set version = "8.2.13" %}
 
 package:
-  name: gnureadline
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: gnureadline-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/g/gnureadline/gnureadline-{{ version }}.tar.gz
-  md5: b0c597a2dd32b629e7fa4c0a15ff764d
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gnureadline-{{ version }}.tar.gz
+  sha256: c9b9e1e7ba99a80bb50c12027d6ce692574f77a65bf57bc97041cf81c0f49bd1
 
 build:
   number: 0
   skip: true  # [not osx]
-  script: python -m pip install .
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -27,12 +27,20 @@ requirements:
 test:
   imports:
     - gnureadline
+    - override_readline
+    - readline
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: http://github.com/ludwigschwardt/python-gnureadline
-  license: GPL-3.0
+  license: GPL-3.0-only
   license_family: GPL
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - rl/readline-lib/COPYING
   summary: The standard Python readline extension statically linked against the GNU readline library
 
 extra:
