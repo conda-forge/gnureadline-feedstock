@@ -1,16 +1,16 @@
 {% set name = "gnureadline" %}
-{% set version = "8.2.13" %}
+{% set version = "8.3.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gnureadline-{{ version }}.tar.gz
-  sha256: c9b9e1e7ba99a80bb50c12027d6ce692574f77a65bf57bc97041cf81c0f49bd1
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/gnureadline-{{ version }}.tar.gz
+  sha256: 0972392bd2f31244e2d981178246fe8b729c8766454fdaeb275946ac47b7e9fd
 
 build:
-  number: 3
+  number: 0
   skip: true  # [not osx]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
